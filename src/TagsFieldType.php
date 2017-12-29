@@ -159,4 +159,31 @@ class TagsFieldType extends FieldType
 
         return $required;
     }
+
+
+    /**
+     * Gets entries that are related to this tag in the same entry table
+     *
+     * @param array $excluded The IDs of posts to exclude
+     * @return void
+     */
+    public function getRelated(array $excluded = null){
+
+        $query = $this->entry->query();
+
+        $query->where(function($queryGroup){
+            foreach($this->getValue() as $tag){
+               $queryGroup->orWhere('tags','like','%' . $tag . '%');
+            }
+            return $queryGroup;
+
+        });
+
+        if($excluded){
+            $query->whereNotIn($this->entry->getTableName().'.id',$excluded);
+        }
+
+        return $query->get();
+
+    }
 }
