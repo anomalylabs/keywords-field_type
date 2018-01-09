@@ -1,5 +1,5 @@
 {
-    "name": "anomaly/tags-field_type",
+    "name": "psaunders/tags-field_type",
     "type": "streams-addon",
     "description": "A tags input field type.",
     "keywords": [
