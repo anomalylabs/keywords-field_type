@@ -23,7 +23,7 @@ class TagsFieldTypePresenter extends FieldTypePresenter
     /**
      * Return the tags wrapped in labels.
      *
-     * @param  string $class
+     * @param  string $class the class to give each tag
      * @return string
      */
     public function labels($class = 'tag-default')
@@ -34,6 +34,23 @@ class TagsFieldTypePresenter extends FieldTypePresenter
             },
             $this->object->getValue()
         );
+    }
+
+    /**
+     * Gets related entries and wraps in links
+     *
+     * @param  string $class the to give each tag
+     * @return string
+     */
+    public function relatedLabels($class = 'tag-default')
+    {
+        $links = '';
+
+        foreach($this->object->getRelated([$this->entry->id]) as $entry){
+            $links .= '<a class="tag ' . $class . '" href="'.$entry->route('view').'">' . $entry->title . '</a>';
+        }
+
+        return $links;
     }
 
     /**
