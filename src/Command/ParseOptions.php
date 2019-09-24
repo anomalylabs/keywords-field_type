@@ -1,7 +1,5 @@
 <?php namespace Anomaly\TagsFieldType\Command;
 
-
-
 /**
  * Class ParseOptions
  *

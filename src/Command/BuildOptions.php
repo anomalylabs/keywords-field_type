@@ -3,7 +3,6 @@
 use Anomaly\TagsFieldType\TagsFieldType;
 use Illuminate\Container\Container;
 
-
 /**
  * Class BuildOptions
  *
@@ -26,7 +25,7 @@ class BuildOptions
      *
      * @param TagsFieldType $fieldType
      */
-    function __construct(TagsFieldType $fieldType)
+    public function __construct(TagsFieldType $fieldType)
     {
         $this->fieldType = $fieldType;
     }

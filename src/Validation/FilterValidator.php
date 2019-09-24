@@ -31,7 +31,6 @@ class FilterValidator
         }
 
         foreach ($value as $tag) {
-
             $passes = true;
 
             foreach ($filters as $filter) {

@@ -3,7 +3,6 @@
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\EloquentModel;
 use Anomaly\TagsFieldType\Command\ParseOptions;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Collection;
 
 /**
@@ -15,8 +14,6 @@ use Illuminate\Support\Collection;
  */
 class TagsFieldTypeOptions
 {
-
-    use DispatchesJobs;
 
     /**
      * Handle the select options.
@@ -32,11 +29,10 @@ class TagsFieldTypeOptions
          * the config GUI.
          */
         if (is_string($options)) {
-            $options = $this->dispatch(new ParseOptions($options));
+            $options = dispatch_now(new ParseOptions($options));
         }
 
         if ($options instanceof Collection) {
-
             if ($options->isEmpty()) {
                 $options = [];
             }

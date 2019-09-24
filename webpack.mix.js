@@ -12,8 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix
-   .copy('node_modules/@yaireo/tagify/dist/tagify.min.js', 'resources/js')
-   .sass('resources/scss/input.scss', 'resources/css');
+    .copy('node_modules/@yaireo/tagify/dist/tagify.min.js', 'resources/js')
+    .sass('resources/scss/input.scss', 'resources/css');
 
 // Full API
 // mix.js(src, output);
