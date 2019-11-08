@@ -9,6 +9,7 @@
             value="{{ field_type.value|join(',') }}"
             placeholder="{{ trans(field_type.placeholder) }}"
             data-options="{{ json_encode(field_type.options) }}"
+            data-max="{{ field_type.config.max ?: 'false' }}"
             data-enforce_options="{{ field_type.config.enforce_options ? 'true' : 'false' }}"
             {{ html_attributes(field_type.attributes) }}>
 

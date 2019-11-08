@@ -19,6 +19,10 @@ let tag_fields = [];
             if (field.dataset.options != '[]') {
                 config.whitelist = JSON.parse(field.dataset.options);
             }
+            
+             if (field.dataset.max != 'false') {
+                config.maxTags = field.dataset.max;
+            }
 
             let tag = new Tagify(field, config);
 
