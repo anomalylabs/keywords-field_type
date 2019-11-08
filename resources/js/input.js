@@ -1,3 +1,5 @@
+let tag_fields = [];
+
 (function (window, document) {
 
     let fields = Array.prototype.slice.call(
@@ -18,15 +20,16 @@
                 config.whitelist = JSON.parse(field.dataset.options);
             }
 
-            let tags = new Tagify(field, config);
+            let tag = new Tagify(field, config);
 
-            tags.DOM.input.addEventListener('paste', function (event) {
+            tag.DOM.input.addEventListener('paste', function (event) {
 
                 event.preventDefault();
 
                 document.execCommand('insertHTML', false, event.clipboardData.getData('text/plain'));
             });
-
+            
+            tag_fields.push(tag);
         }
     });
 
