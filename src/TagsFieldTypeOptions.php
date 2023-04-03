@@ -32,7 +32,7 @@ class TagsFieldTypeOptions
          * the config GUI.
          */
         if (is_string($options)) {
-            $options = $this->dispatch(new ParseOptions($options));
+            $options = $this->dispatchSync(new ParseOptions($options));
         }
 
         if ($options instanceof Collection) {
